@@ -132,14 +132,25 @@ grafo le_grafo(FILE *input)
 		if(ch == ' ')
 		{
 			numEspaco++;
-			espaco = j - 1;
+			if(numEspaco == 1)
+			{
+				espaco = j - 1;
+			}
 		}	
 
 		if(ch == '\n')
 		{	
 			i++;
 			//printf("Final da %d linha\n", i);
-			line[strlen(line) - 1] = '\0';
+			if(line[strlen(line) - 2] == ' ')
+			{
+				line[strlen(line) - 2] = '\0';
+				numEspaco--;
+			}
+			else
+			{
+				line[strlen(line) - 1] = '\0';
+			}
 			if(numEspaco > 1)
 			{
 				printf("LINHA %s INVALIDA pois possui mais de duas Strings\n\n", line);
@@ -168,8 +179,8 @@ grafo le_grafo(FILE *input)
 						strncpy(a, line, espaco);
 						strncpy(b, &line[espaco + 1], strlen(line));
 						add_aresta(g, a, b);
+						g->numA++;
 					}
-					g->numA++;
 					if((g->numV%100 == 0) && (g->numV != 0))
 					{
 						printf("realoquei mais 100 espacos na lista de adjacencia\n");
