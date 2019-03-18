@@ -4,29 +4,10 @@
 #include <stdio.h>
 
 //------------------------------------------------------------------------------
-// struct que representa uma lista de adjacencia
-//
-// possui um ponteiro para cada vertice
-
-struct AdjList
-{
-	struct vertice *head;
-};
-typedef struct AdjList *AdjList;
-
-//------------------------------------------------------------------------------
 // (apontador para) estrutura de dados para representar um grafo
 // 
 // o grafo tem um nome, que é uma "string"
-// é um array de listas de adjacencia
-// numV: numero de vertices do grafo
-// numA: numero de arestas do grafo
-struct grafo
-{
-	int numV; 
-	int numA;
-	struct AdjList *array;
-};
+
 typedef struct grafo *grafo;
 
 //------------------------------------------------------------------------------
@@ -34,32 +15,7 @@ typedef struct grafo *grafo;
 // 
 // o vértice tem um nome, que é uma "string"
 
-struct vertice
-{
-	char *nome;
-	int grau;
-	struct vertice *next;
-
-};
 typedef struct vertice *vertice;
-
-//------------------------------------------------------------------------------
-// cria um vertice (no) com seus atributos
-// para serem inseridos na lista de adjacencia
-
-vertice cria_vertice_lista(char *nome);
-
-//------------------------------------------------------------------------------
-// cria a estrutura de um grafo com uma lista de adjacencia
-// com todos os indices apontados para NULL
-
-grafo cria_grafo();
-
-//------------------------------------------------------------------------------
-// adiciona uma aresta entre dois vertices
-// 
-
-void add_aresta(grafo g, char *a, char *b);
 
 //------------------------------------------------------------------------------
 // desaloca toda a memória usada em *g
