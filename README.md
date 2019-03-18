@@ -1,7 +1,5 @@
-Ainda nao estou usando o teste.c e nem o make passado pelo professor. 
-
-Para compilar: gcc -o grafo grafo.c
+make para compilar. 
 
 Para executar: ./grafo < (nome do arquivo)
 
-obs: arquivo deve ter uma linha em branco no final ou nao vai ler a ultima linha. :v 
+cada arquivo .txt possui como o nome o coeficiente de agrupamento (o valor eh 0.(o nome q ta) :p) 
