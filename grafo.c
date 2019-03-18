@@ -426,12 +426,6 @@ double coeficiente_agrupamento_grafo(grafo g)
 	int ehVizinho = 0;
 	double coeficienteAgrup;
 
-	//se o numero de arestas e/ou numero de vertices for menor que 3, nao existe triade. Portanto retorna 0.0  
-	if(g->numA < 3 || g->numV < 3)
-	{
-		return 0.0;
-	}
-
 	vertice aux1, aux2;
 
 	//conferimos duas listas por vez. Esse primeiro for "segura" a primeira lista e o segundo
@@ -487,6 +481,10 @@ double coeficiente_agrupamento_grafo(grafo g)
 	//numTriade = numTriade/2;
 	//numTriadeFechada = numTriadeFechada/2;
 	//o coeficiente de agrupamento eh a relacao do numero de triades fechadas pelo total (fechadas + abertas)
+	if(numTriade <= 0.0)
+	{
+		return 0.0;
+	}
 	coeficienteAgrup = numTriadeFechada/numTriade;
 
 	//printf("NUMERO TOTAL DE TRIADES: %.0lf\n", numTriade);
